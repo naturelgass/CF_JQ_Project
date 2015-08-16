@@ -1,0 +1,1 @@
+<cfheader name="SessionTimeout" value="1">
