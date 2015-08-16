@@ -1,6 +1,6 @@
 <cfswitch expression="#fusebox.fuseAction#">
 
-	<cfcase value="home">
+	<cfcase value="chat">
 
 		<cfinclude template="./chat/dsp_mainchat.cfm">
 
@@ -10,7 +10,7 @@
 <!---         <cfinclude template="../_display/dsp_document_foot.cfm"> --->
 	</cfcase>
 
-	<cfcase value="pusher">
+	<cfcase value="home">
 
 		<cfinclude template="./pusher/index.cfm">
 
