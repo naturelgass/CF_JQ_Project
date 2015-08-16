@@ -147,7 +147,7 @@
 
 					// Send the message to the server.
 					$.get(
-						"./handlers/send.cfm",
+						"./_modules/send.cfm",
 						{
 							userID: userID,
 							handle: handleLabel.text(),
@@ -174,7 +174,7 @@
 					// Tell the server that this user has stopped
 					// typing.
 					$.get(
-						"./handlers/type.cfm",
+						"./_modules/type.cfm",
 						{
 							userID: userID,
 							handle: handleLabel.text(),
@@ -209,7 +209,7 @@
 
 					// Tell the server that this user is typing.
 					$.get(
-						"./handlers/type.cfm",
+						"./_modules/type.cfm",
 						{
 							userID: userID,
 							handle: handleLabel.text(),
@@ -247,7 +247,7 @@
 								// Tell the server that this user
 								// has stopped typing.
 								$.get(
-									"./handlers/type.cfm",
+									"./_modules/type.cfm",
 									{
 										userID: userID,
 										handle: handleLabel.text(),
