@@ -1,23 +1,11 @@
 <cfswitch expression="#fusebox.fuseAction#">
 
-	<cfcase value="chat">
-
-		<cfinclude template="./chat/dsp_mainchat.cfm">
-
-    	<!--- <cfinclude template="../_display/dsp_document_head.cfm"> --->
-<!---         <cfinclude template="../quickMenu/dsp_menu.cfm"> --->
-<!---         <cfinclude template="chat.cfm"> --->
-<!---         <cfinclude template="../_display/dsp_document_foot.cfm"> --->
+	<cfcase value="home">
+		<cfinclude template="./pusher/index.cfm">
 	</cfcase>
 
-	<cfcase value="home">
-
-		<cfinclude template="./pusher/index.cfm">
-
-    	<!--- <cfinclude template="../_display/dsp_document_head.cfm"> --->
-<!---         <cfinclude template="../quickMenu/dsp_menu.cfm"> --->
-<!---         <cfinclude template="chat.cfm"> --->
-<!---         <cfinclude template="../_display/dsp_document_foot.cfm"> --->
+	<cfcase value="chat">
+		<cfinclude template="./chat/dsp_mainchat.cfm">
 	</cfcase>
 
 	<cfdefaultcase>
@@ -25,13 +13,3 @@
 	</cfdefaultcase>
 
 </cfswitch>
-<!---
-
-		<!--- Get expanded path of the BASE path. --->
-		<cfset strPath = ExpandPath( "./" ) />
-
-		<!--- Get the expanded path of the CURRENT template path. --->
-		<cfset strPath = GetDirectoryFromPath(
-		    GetCurrentTemplatePath()
-	    ) />
- --->

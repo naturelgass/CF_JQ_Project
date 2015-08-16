@@ -17,7 +17,7 @@ component
 	this.projectDirectory = ( this.appDirectory & "../../" );
 
 	// Map to our Lib folder so we can access our project components.
-	this.mappings[ "/lib" ] = ( this.projectDirectory & "lib/" );
+	this.mappings[ "/_handlers" ] = ( this.projectDirectory & "_handlers/" );
 
 	// Map to our Vendor folder so we can access 3rd-party components.
 	this.mappings[ "/vendor" ] = ( this.projectDirectory & "vendor/" );
@@ -40,7 +40,7 @@ component
 
 		// Create an instance of our pusher component using our demo
 		// credentials and the Crypto library.
-		request.pusher = new lib.Pusher(
+		request.pusher = new _handlers.Pusher(
 			appID = request.pusherAppID,
 			appKey = request.pusherKey,
 			appSecret = request.pusherSecret,
