@@ -7,7 +7,7 @@
 		<!--- Sending Client-To-Client Realtime Messages With Pusher App And ColdFusion --->
 	</title>
 
-	<link rel="stylesheet" type="text/css" href="./styles.css"></link>
+	<link rel="stylesheet" type="text/css" href="./_css/styles.css"></link>
 </head>
 <body>
 
