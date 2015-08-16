@@ -107,10 +107,10 @@
 
 		<cfscript>
 			///if in development make dump to screeen
-	        if (Application.environment == "development" ) {
+	        //if (Application.environment == "development" ) {
 	          writeDump(arguments.exception);
 	          //abort;
-	        }
+	        //}
 		</cfscript>
 
 	</cffunction>

@@ -1,10 +1,15 @@
-<cfoutput>Hello World</cfoutput>
-<cfdump var="#application#">
+<cfoutput>This page is under construction...</cfoutput>
 
-<cfquery datasource="#application.datasource.bullchat#" name="bullchat_users">
-SELECT *
-  FROM
-	[bc_users]
-</cfquery>
+<cfif StructKeyExists(URL,"run")>
 
-<cfdump var="#bullchat_users#">
+	<cfdump var="#application#">
+
+	<cfquery datasource="#application.datasource.bullchat#" name="bullchat_users">
+	SELECT *
+	  FROM
+		[bc_users]
+	</cfquery>
+
+	<cfdump var="#bullchat_users#">
+
+</cfif>
