@@ -3,7 +3,8 @@
 <!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
 <!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
 <!--[if IE 9]>    <html lang="en-us" class="no-js ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-us" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-us" class="no-js"> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 
@@ -26,7 +27,7 @@
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
 
 
-		<!-- NOTE: The following css files have been combined and minified into plugins.css
+		<!-- NOTE: The following css files have been combined and minified into plugins.css  -->
 
 		<link rel="stylesheet" href="styles/plugins/colorpicker/colorpicker.css">
 		<link rel="stylesheet" href="styles/plugins/datatables/datatables.css">
@@ -47,11 +48,11 @@
 		<link rel="stylesheet" href="styles/plugins/tiptip/tiptip.css">
 		<link rel="stylesheet" href="styles/plugins/uistars/uistars.css">
 		<link rel="stylesheet" href="styles/plugins/uitotop/uitotop.css">
-		<link rel="stylesheet" href="styles/plugins/uniform/uniform.css"> -->
-		<link rel="stylesheet" href="styles/plugins/all/plugins.css">
+		<link rel="stylesheet" href="styles/plugins/uniform/uniform.css">
+		<!--- <link rel="stylesheet" href="styles/plugins/all/plugins.css"> --->
 
 
-		<!-- NOTE: The following css files have been combined and minified into all.css
+		<!-- NOTE: The following css files have been combined and minified into all.css -->
 
 		<link rel="stylesheet" href="styles/adminica/text.css">
 		<link rel="stylesheet" href="styles/adminica/grid.css">
@@ -59,9 +60,10 @@
 		<link rel="stylesheet" href="styles/adminica/mobile.css">
 		<link rel="stylesheet" href="styles/adminica/base.css">
 		<link rel="stylesheet" href="styles/adminica/ie.css">
-		<link rel="stylesheet" href="styles/themes/switcher.css"> -->
-		<link rel="stylesheet" href="styles/adminica/all.css">
+		<link rel="stylesheet" href="styles/themes/switcher.css">
+<!--- 		<link rel="stylesheet" href="styles/adminica/all.css"> --->
 
+		<link rel="stylesheet" href="styles/custom.css">
 
 		<!-- Style Switcher
 
@@ -83,7 +85,7 @@
 		<link rel="stylesheet" href="styles/adminica/colours.css"> <!-- this file overrides the theme's default colour scheme, allowing more colour combinations (see layout example page)
 
 
-		<!-- NOTE: The following js files have been conbined and minified into plugins-min.js
+		<!-- NOTE: The following js files have been conbined and minified into plugins-min.js -->
 
 		<script src="scripts/jquery/jquery.js"></script>
 		<script src="scripts/jquery/jqueryui.js"></script>
@@ -126,11 +128,11 @@
 		<script src="scripts/uistars/uistars.js"></script>
 		<script src="scripts/uitotop/uitotop.js"></script>
 		<script src="scripts/uniform/uniform.js"></script>
-		<script src="scripts/validation/validation.js"></script> -->
-		<script src="scripts/plugins-min.js"></script>
+		<script src="scripts/validation/validation.js"></script>
+		<!--- <script src="scripts/plugins-min.js"></script> --->
 
 
-		<!-- NOTE: The following js files have been conbined and minified into adminica_all-min.js
+		<!-- NOTE: The following js files have been conbined and minified into adminica_all-min.js -->
 
 		<script src="scripts/adminica/adminica_ui.js"></script>
 		<script src="scripts/adminica/adminica_mobile.js"></script>
@@ -141,11 +143,15 @@
 		<script src="scripts/adminica/adminica_various.js"></script>
 		<script src="scripts/adminica/adminica_wizard.js"></script>
 		<script src="scripts/adminica/adminica_forms.js"></script>
-		<script src="scripts/adminica/adminica_load.js"></script>	-->
-		<script src="scripts/adminica/adminica_all-min.js"></script>
+		<script src="scripts/adminica/adminica_load.js"></script>
+		<!--- <script src="scripts/adminica/adminica_all-min.js"></script> --->
 
 
 		<script src="scripts/custom.js"></script>
 
 		</head>
 	<body>
+
+<!--- <div id="main_container" class="container_16 clearfix" style="height: 93%;"> --->
+
+<div id="main_container" class=" container_16 clearfix"  style="height: 100%;">

@@ -53,7 +53,7 @@
   padding: 5px 0;
   text-indent: 10px;
   background: #bbb;
-  width: 98%;
+  width: 100%;
   float: left;
   font-weight: bold;
   text-transform: uppercase;
@@ -150,7 +150,7 @@
 }
 .slider-content ul ul li span {
   position: absolute;
-  right: 47px;
+  right: 10px;
   top: 0;
   line-height: 25px;
   color: #999;

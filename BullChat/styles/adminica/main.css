@@ -491,7 +491,7 @@ li:last-child ul.drawer li:last-child a {
   min-width: 700px;
 }
 div.main_container {
-  margin: 0px 10px 10px 196px;
+  margin: 10px 10px 10px;/* 0px 10px 10px 196px; */
   *top: 10px;
   background: #eeeeee url(../../images/interface/grey_noise.png) repeat;
   background: #F6F7F8;
@@ -571,7 +571,7 @@ div.main_container p a,
 }
 /*------ Top Navigation --------*/
 #nav_top {
-  margin: -15px -10px 20px;
+  margin: 10px 15px 10px;
   border-bottom: 0px solid #fff;
 }
 .dropdown_menu {
@@ -2122,7 +2122,7 @@ File Browser
 }
 /* Gallery */
 .gallery {
-  padding: 25px 0 15px 24px;
+  /* padding: 25px 0 15px 24px; */
   margin: 0;
   list-style: none;
 }

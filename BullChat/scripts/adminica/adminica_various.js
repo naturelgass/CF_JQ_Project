@@ -5,7 +5,7 @@ function adminicaVarious(){
 	//This configures the iPhone style Contacts display)
 	if($.fn.sliderNav){
 
- 		$('#slider_list').sliderNav({height:'402'});
+ 		//$('#slider_list').sliderNav({height:'402'});
 
 		$('#slider_list ul ul li a').live('click', function(){
 			var y =	$(this).find('span').text();

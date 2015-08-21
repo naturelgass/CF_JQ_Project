@@ -1,81 +1,44 @@
-<cfoutput>
-<div id="main_container" class="container_16 clearfix">
-	<div class="box grid_16">
-
-		<h2 class="section">#session.username#</h2>
-
-		<div class="columns clearfix">
-
-				<fieldset class="label_top">
-					<div>
-					<legend><h1>Welcome to BullChat.gr</h1></legend>
-					</div>
-				</fieldset>
-
-			<div class="col_33">
-				<fieldset class="label_top">
-					<label for="text_field_inline">New users</label>
-					<div>
-						<select size="20" class="newUsers" style="width:100%;">
-						</select>
-					</div>
-				</fieldset>
-			</div>
-
-			<div class="col_33">
-				<fieldset class="label_top">
-					<label for="text_field_inline">Active Users</label>
-					<div>
-						<select size="20" class="activeUsers" style="width:100%;">
-							<cfloop query="qryActiveUsers">
-								 <option value="#userID#" class="sendMSG">#username#</option>
-							</cfloop>
-						</select>
-					</div>
-				</fieldset>
-			</div>
-
-			<div class="col_3">
-				<fieldset class="label_top">
-					<label for="text_field_inline">Profile</label>
-					<div>
-						<textarea rows=17 id="userProfile"></textarea>
-					</div>
-				</fieldset>
-			</div>
-
-		</div>
-
-		<fieldset class="label_top">
-			<label for="text_field_inline">Your message:</label>
-			<div>
-				<textarea rows=5></textarea>
-			</div>
-		</fieldset>
-
-		<div class="button_bar clearfix">
-			<button class="dark" type="submit">
-				<img src="images/icons/small/white/mail.png">
-				<span>Send</span>
-			</button>
-			<button class="light send_right" type="reset">
-				<span>Clear</span>
-			</button>
-		</div>
-
-	</div>
+<div class="grid_16" style="margin-top: 10px;">
+	<cfinclude template="inc_followers.cfm">
 </div>
-</cfoutput>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.sendMSG').live('click',function(){
-			userID = $(this).val();
-			loadUserProfile(userID)
-		});
-	});
+<div class="box grid_5" style="height: 65%;">
+	<h2 class="box_head">New Users</h2>
 
-	function loadUserProfile(userID){
-		loadPageToPlaceHolder({ url:'main/inc_loadProfile.cfm', textareaID:'', placeHolder:'userProfile', Args: {"userID": userID} });
-	}
-</script>
+	<div class="grid_16" style="height: 90%; overflow-y: scroll;">
+		<cfinclude template="inc_newUsers.cfm">
+	</div>
+
+</div>
+
+<div class="box grid_5" style="height: 65%;">
+	<h2 class="box_head">Active Users</h2>
+
+	<div class="box grid_16"style="height: 90%;">
+		<cfinclude template="inc_activeUsers.cfm">
+	</div>
+
+</div>
+
+<div class="box grid_6" style="height: 65%;">
+	<h2 class="box_head">Profile</h2>
+
+	<div class="grid_16" style="height: 90%; overflow-y: scroll;">
+		<cfinclude template="inc_userProfile.cfm">
+	</div>
+
+</div>
+
+
+
+<div class="box grid_6" style="height: 220px;">
+	<cfinclude template="inc_chatBox.cfm">
+</div>
+
+<div class="box grid_3" style="height: 220px;">
+	<cfinclude template="inc_toolBox.cfm">
+</div>
+
+<div class="box grid_7" style="height: 220px;">
+	<cfinclude template="inc_users_tabs.cfm">
+</div>
