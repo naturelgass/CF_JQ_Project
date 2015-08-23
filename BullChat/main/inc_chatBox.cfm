@@ -3,7 +3,7 @@
 <cfoutput>
 
 <input type="hidden" id="clientUsername" value="#session.username#">
-<input type="hidden" id="clientID" value="#session.userID#">
+<input type="hidden" id="clientID" value="#session.clientID#">
 <input type="hidden" id="connectedClientID" value="0">
 <input type="hidden" id="connectedClientName" value="">
 

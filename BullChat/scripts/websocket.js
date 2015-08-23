@@ -199,7 +199,7 @@
         //	console.log(element.name);
         //});		
 		console.log(data[0].image);
-		$('#newMessages').append('<li id="' + data[0].publisherid + '"><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="' + data[0].image +'"></a><div class="alert badge grad_green">1</div></li>');
+		$('#newMessages').append('<li id="new_' + data[0].publisherid + '"><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="' + data[0].image +'"></a><div class="alert badge grad_green">1</div></li>');
 	}
 	
 	

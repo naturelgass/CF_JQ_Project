@@ -17,23 +17,24 @@
 	<!---<cfset THIS.SetClientCookies 	= false />--->
  	<!---	<cfset THIS.customtagpaths 		= "#basePath#_components#filepathDelimiter#">--->
 
+	<cfscript>
+		session.clientID = "";
+		session.username = "";
+		session.profile = "";
+		session.image = "default.png";
+		session.address = "";
+		session.longitude = "";
+		session.latitude = "";
+		session.city = "";
+		session.region = "";
+		session.country = "";
+		session.ip = "#CGI.REMOTE_ADDR#";
+		session.tempImage = "";
+		session.tempImageExt = "";
+	</cfscript>
 
 	<cffunction name="onApplicationStart">
 		<cfscript>
-
-			session.clientID = "";
-			session.username = "";
-			session.profile = "";
-			session.image = "default.png";
-			session.address = "";
-			session.longitude = "";
-			session.latitude = "";
-			session.city = "";
-			session.region = "";
-			session.country = "";
-			session.ip = "#CGI.REMOTE_ADDR#";
-			session.tempImage = "";
-			session.tempImageExt = "";
 
 			application.root = getDirectoryFromPath(getCurrentTemplatePath());
 			THIS.mappings["/_handlers"] 	= "#application.root#_handlers#filepathDelimiter#";
