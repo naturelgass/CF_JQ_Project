@@ -38,7 +38,13 @@ $(document).ready(function(){
             draggable: true,
             animation: google.maps.Animation.DROP
         });
-
+        
+       geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+            	getGeoValues(results, marker);
+            }
+        });
+        
         (function (marker, data) {
             google.maps.event.addListener(marker, "click", function (e) {
                 infoWindow.setContent(data.description);
@@ -48,14 +54,10 @@ $(document).ready(function(){
 			google.maps.event.addListener(marker, 'dragend', function() {
 				geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
-						if (results[0]) {
-							console.log(results[0].formatted_address);
-							console.log(marker.getPosition().lat());
-							console.log(marker.getPosition().lng());
-							marker.setAnimation(google.maps.Animation.DROP);
-							infoWindow.setContent(results[0].formatted_address);
-                			infoWindow.open(map, marker);
-						}
+						getGeoValues(results, marker);
+						marker.setAnimation(google.maps.Animation.DROP);
+						infoWindow.setContent(results[0].formatted_address);
+            			infoWindow.open(map, marker);
 					}
 				});
 			});
@@ -63,4 +65,49 @@ $(document).ready(function(){
         latlngbounds.extend(marker.position);
 		var bounds = new google.maps.LatLngBounds();
 	}
+	
 });
+
+function getGeoValues(results, marker){
+	var userCity = "", userRegion = "", userCountry = "";
+    if (results[1]) {
+        var arrAddress = results;
+        $.each(arrAddress, function(i, address_component) {
+        	if (address_component.types[0] == "locality") {
+        		userCity = address_component.address_components[0].long_name;
+        	}        	
+	        if (address_component.types[0] == "administrative_area_level_1") {
+	        	userRegion = address_component.address_components[0].long_name;
+	        }
+	        if (address_component.types[0] == "country") {
+                userCountry = address_component.address_components[0].long_name;
+            }
+        
+        });
+    }
+    if (results[0]) {
+    	updateAddress(userCity, userRegion, userCountry, results[0].formatted_address, marker.getPosition().lat(), marker.getPosition().lng());
+	}
+}
+
+function updateAddress(city, region, country, address, latitude, longitude){
+	$('#city').val(city);
+	$('#region').val(region);
+	$('#country').val(country);
+	$('#address').val(address);
+	$('#longitude').val(latitude);
+	$('#latitude').val(longitude);
+}
+
+function getCity(results){
+    if (results[1]) {
+        var arrAddress = results;
+        // iterate through address_component array
+        $.each(arrAddress, function(i, address_component) {
+        	if (address_component.types[0] == "locality") {
+        		itemLocality = address_component.address_components[0].long_name;
+        	}
+        });
+
+    }
+}

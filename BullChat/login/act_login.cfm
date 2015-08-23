@@ -1,45 +1,31 @@
-<cfparam name="form.username" default="">
-<cfparam name="form.guest" default="">
+<cfparam name = "form.username" default="">
+<cfparam name = "form.description" default="">
+<cfparam name = "form.address" default="">
+<cfparam name = "form.longitude" default="">
+<cfparam name = "form.latitude" default="">
+<cfparam name = "form.country" default="">
+<cfparam name = "form.region" default="">
+<cfparam name = "form.city" default="">
+<cfparam name = "form.ip" default="">
+<cfif form.username NEQ "">
 
-<cfoutput>
-<cfif StructKeyExists(form,"guest")>
+	<cfif form.fileToUpload NEQ "">
+		<cffile action="upload" fileField="form.fileToUpload" destination="#Application.path.root#\profilePics" nameconflict="makeunique" />
+		<cfset session.tempImage = cffile.serverFileName & "." & cffile.serverFileExt>
+		<cfset session.tempImageExt = cffile.serverFileExt>
+	</cfif>
 
-	<cfquery datasource="#Application.datasource.bullchat#" name="qryGuestUser">
-		SELECT
-			[userID]
-			,[username]
-			,[datetime]
-			,[active]
-		FROM
-			[bc_guests]
-		WHERE
-			[username] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.username#">
-	</cfquery>
+	<cfscript>
+		session.username = form.username;
+		session.description = form.description;
+		session.address = form.address;
+		session.longitude = form.longitude;
+		session.latitude = form.latitude;
+		session.country = form.country;
+		session.region = form.region;
+		session.city = form.city;
+	</cfscript>
 
-	<cfif qryGuestUser.recordcount EQ 0>
+	<cfoutput>1</cfoutput>
 
-		<cfsilent>
-
-		<cfset gustUserID = RandRange(111111, 999999)>
-		<cfset datatime = CREATEODBCDATETIME( Now() ) />
-
-		<cfquery datasource="#Application.datasource.bullchat#" name="qryNewUser">
-		    INSERT INTO [bc_guests]
-		        (
-				[userID]
-				,[username]
-				,[datetime]
-				,[active]
-		        )
-		    VALUES
-		        (
-		          <cfqueryparam cfsqltype="cf_sql_integer" value="#gustUserID#">
-		         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.username#">
-		         ,<cfqueryparam cfsqltype="cf_sql_timestamp" value="#datatime#">
-		         ,<cfqueryparam cfsqltype="cf_sql_integer" value="1">
-		         )
-		</cfquery>
-
-		</cfsilent>#gustUserID#<cfelse>0</cfif>
 </cfif>
-</cfoutput>

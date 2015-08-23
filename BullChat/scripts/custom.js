@@ -3,6 +3,7 @@ var $loading = $('<div id="loading_overlay"><div class="loading_message round_bo
 var randomnumber = Math.floor(Math.random()*100002);
 var accordionDefault = {autoHeight: false, animated: false, collapsible: true};
 var ajaxPostPath		= {};
+
 //////////////////////////////////////////////////////////////POST DATA TO PAGE SITE WIDE //////////////////////////////////////////////////////////////////////////
 function postData(params){
 	
@@ -59,4 +60,8 @@ function loadPageToPlaceHolder(params){
 			}
 			
 		});
+}
+
+function loadUserProfile(userID) {
+	loadPageToPlaceHolder({ url:'?fa=userProfile', placeHolder:'userProfileSection', textareaID:'no', Args: {"id": userID } });
 }

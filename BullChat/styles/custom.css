@@ -1,3 +1,20 @@
+.chatTab {
+	height: 150px;
+	overflow-y: scroll;
+}
+
+.usersList, .clickable {
+	cursor: pointer;
+}
+.usersList:hover {
+	color: red;
+}
+.greenCol {
+	color: green;
+}
+.redCol {
+	color: red;
+}
 .center-webCam
 {
   position: absolute;

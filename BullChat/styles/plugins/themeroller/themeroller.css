@@ -1524,7 +1524,8 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-panel {
   display: block;
   border-width: 0;
-  padding: 12px 14px;
+  /* padding: 12px 14px; */
+  margin: 10px;
   background: none;
 }
 .ui-tabs .ui-tabs-panel {

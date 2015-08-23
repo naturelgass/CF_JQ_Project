@@ -39,7 +39,7 @@
 		<link rel="stylesheet" href="styles/plugins/select2/select2.css">
 		<link rel="stylesheet" href="styles/plugins/selectbox/selectbox.css">
 		<link rel="stylesheet" href="styles/plugins/slidernav/slidernav.css">
-		<link rel="stylesheet" href="styles/plugins/slidernav/smallipop.css">
+		<!--- <link rel="stylesheet" href="styles/plugins/slidernav/smallipop.css"> --->
 		<link rel="stylesheet" href="styles/plugins/syntaxhighlighter/syntaxhighlighter.css">
 		<link rel="stylesheet" href="styles/plugins/syntaxhighlighter/shThemeDefault.css">
 		<link rel="stylesheet" href="styles/plugins/tagit/tagit.css">
@@ -146,11 +146,11 @@
 		<script src="scripts/adminica/adminica_load.js"></script>
 		<!--- <script src="scripts/adminica/adminica_all-min.js"></script> --->
 
-
+		<script src="scripts/websocket.js"></script>
 		<script src="scripts/custom.js"></script>
 
 		</head>
-	<body>
+	<body data-channels="chat" data-debug="false" data-auto-connect="false" data-online-timer="10" data-ping="?fa=chat-ping" data-do-message="receiveMessage" class="off">
 
 <!--- <div id="main_container" class="container_16 clearfix" style="height: 93%;"> --->
 

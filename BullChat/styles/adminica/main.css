@@ -1778,10 +1778,11 @@ Tab Boxes
   margin-bottom: 3px;
   border: 0;
 }
+/*
 .tabs ul.tab_header li a span {
   color: #333;
   font: bold 10px sans-serif;
-}
+} */
 .tabs ul.tab_header li a:hover {
   color: #222;
   cursor: pointer;

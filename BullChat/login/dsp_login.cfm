@@ -1,11 +1,14 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="scripts/geolocation.js"></script>
+<cfoutput>
+<script src="#Application.urls.bullchat#/scripts/geolocation.js"></script>
+</cfoutput>
 
 <div id="pjax">
 		<div id="wrapper">
 			<div class="isolate">
-				<div class="center narrow">
+				<div class="center ">
 					<div class="main_container full_size container_16 clearfix">
+
 						<div class="box">
 							<div class="block">
 
@@ -15,29 +18,62 @@
 										<strong>Welcome to BullChat.</strong> Please enter your details to login.
 									</div>
 								</div>
-<!--- 								<form action="login/act_login.cfm" class="validate_form" id="loginform"> --->
 
-								<fieldset class="label_side top">
-									<label for="username_field">Username</label>
-									<div>
-										<input type="text" id="username_field" name="username" class="required">
-										Login as Guest? <input type="checkbox" id="guset_field" name="guset" checked>
+								<div class="columns clearfix no_lines">
+									<div class="col_50 no_border_right">
+									<div class="section">
+										<div id="dvMap" style="width:340px;height:250px;"></div>
+										<span class="redCol"><strong>Your address will not be exposed to users!</strong></span>
+										</div>
 									</div>
-								</fieldset>
 
-<!---
-								<fieldset class="label_side bottom">
-									<label for="password_field">Password</label>
-									<div>
-										<input type="password" id="password_field" name="password_field" class="" disabled="">
+									<form action="?fa=validate" class="validate_form" method="post" id="loginform" enctype="multipart/form-data">
+
+									<input type="hidden" id="longitude" name="longitude" value="">
+									<input type="hidden" id="latitude" name="latitude" value="">
+									<input type="hidden" id="address" name="address" value="">
+									<input type="hidden" id="country" name="country" value="">
+									<input type="hidden" id="region" name="region" value="">
+									<input type="hidden" id="city" name="city" value="">
+
+									<div class="col_50">
+										<div class="col_100">
+											<div class="section" style="padding: 2px;">
+												<fieldset class="label_side">
+													<label for="username_field">Nickname<span>unique identifier</span></label>
+													<div class="clearfix">
+														<input type="text" id="username_field" name="username" class="required">
+													</div>
+												</fieldset>
+											</div>
+										</div>
+										<div class="col_100">
+											<div class="section" style="padding: 2px;">
+												<fieldset class="label_side">
+													<label for="fileToUpload">Profile picture<span>640x480 max</span></label>
+													<div class="clearfix">
+														<input type="file" name="fileToUpload" id="fileToUpload">
+													</div>
+												</fieldset>
+											</div>
+										</div>
+										<div class="col_100">
+											<div class="section" style="padding: 2px;">
+												<fieldset class="label_side">
+													<label>Profile<span>short description</span></label>
+													<div class="clearfix">
+														<textarea class="autogrow" id="description" name="description"></textarea>
+													</div>
+												</fieldset>
+											</div>
+										</div>
+										<div class="col_100">
+											<div class="section">
+												<p>By login with in this ChatRoom you confirm that you are <b>over 18 years old</b> and that you agree with the terms & conditions!</p>
+											</div>
+										</div>
 									</div>
-								</fieldset>
- --->
-
-								<fieldset>
-									<div id="dvMap" style="width:340px;height:200px; margin: 10px;"></div>
-									<label>Your address will not be exposed to users!</label>
-								</fieldset>
+								</div>
 
 								<div class="button_bar clearfix">
 									<button class="send_right" type="submit" id="login_btn">
@@ -46,14 +82,17 @@
 									</button>
 								</div>
 
+								</form>
+
 							</div>
 						</div>
 					</div>
-					<a href="index.php" id="login_logo"><span>Adminica</span></a>
+<!--- 					<a href="index.php" id="login_logo"><span>Adminica</span></a>
 					<button data-dialog="dialog_register" class="dialog_button send_right" style="margin-top:10px;">
 						<img src="images/icons/small/white/user.png">
 						<span>Not Registered ?</span>
-					</button>
+					</button> --->
+					</div>
 				</div>
 			</div>
 			<div class="display_none">
@@ -62,18 +101,29 @@
 
 <script type="text/javascript">
 
-	$(document).ready(function(){
-		$('#login_btn').click(function(){
-			var username = $('#username_field').val();
-			var guest = $('#guset_field').val();
-			postData({ url:'login/act_login.cfm', callfunction:'availability',  Args: {"username": username, "guest" :guest}  });
-		});
-	});
+    $("#loginform").submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+		var formData = new FormData($(this)[0]);
 
-	function availability(response){
-		if(response != 0){
-			window.location.href = "?fa=home&uID=" + response;
-		}
-	}
+        $.ajax({
+                url: actionurl,
+                type: 'post',
+                dataType: 'json',
+                data: formData,
+                async: false,
+                cache: false,
+		        contentType: false,
+		        processData: false,
+                success: function(data) {
+                	if(data > 0){
+                		window.location.href = "?fa=home"
+                	}
+                }
+        });
+
+        return false;
+
+    });
 
 </script>

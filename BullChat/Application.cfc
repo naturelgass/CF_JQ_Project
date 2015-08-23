@@ -1,11 +1,13 @@
-<cfcomponent name="secure" output="false">
+<cfcomponent name="secure" output="true">
 
 	<cfset filepathDelimiter = "\">
 	<cfif server.os.name contains 'Mac' OR server.os.name contains 'Linux'>
 		<cfset filepathDelimiter = "/">
 	</cfif>
 
-	<cfset THIS.name				= "bullchat">
+	<cfset this.name = "WebSocketDemo">
+	<cfset this.wschannels = [{name="chat"}]>
+
 	<cfset THIS.clientmanagement	= "Yes">
 	<cfset THIS.sessionmanagement	= "Yes">
 	<cfset THIS.applicationtimeout	= "#CreateTimeSpan(0,0,35,0)#">
@@ -16,13 +18,25 @@
  	<!---	<cfset THIS.customtagpaths 		= "#basePath#_components#filepathDelimiter#">--->
 
 
-
-
 	<cffunction name="onApplicationStart">
 		<cfscript>
+
+			session.clientID = "";
+			session.username = "";
+			session.profile = "";
+			session.image = "default.png";
+			session.address = "";
+			session.longitude = "";
+			session.latitude = "";
+			session.city = "";
+			session.region = "";
+			session.country = "";
+			session.ip = "#CGI.REMOTE_ADDR#";
+			session.tempImage = "";
+			session.tempImageExt = "";
+
 			application.root = getDirectoryFromPath(getCurrentTemplatePath());
 			THIS.mappings["/_handlers"] 	= "#application.root#_handlers#filepathDelimiter#";
-
 
 			Application.path.root			= getDirectoryFromPath(getCurrentTemplatePath());
 			Application.filePath.delimiter 	= "\";
@@ -48,6 +62,7 @@
 					Application.environment 	= 'development';
 					Application.domain.name 	= 'bullchat.gr';
 					Application.urls.bullchat	= 'http://#CGI.HTTP_HOST#/bullchat';
+					Application.urls.profilePics = 'http://#CGI.HTTP_HOST#/bullchat/profilePics/';
 
 					parentPath 					= GetDirectoryFromPath(GetDirectoryFromPath(GetCurrentTemplatePath()).ReplaceFirst( "[\\\/]{1}$", "" ));
 					grandParentPath 			= GetDirectoryFromPath(parentPath.ReplaceFirst( "[\\\/]{1}$", "" ));

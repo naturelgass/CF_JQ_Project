@@ -136,6 +136,7 @@ function adminicaUi(){
 				$(this).removeClass('all_open', 200);
 				$(this).removeClass('closed', 200);
 				$(this).find('.toggle_closed').trigger('click');
+				tabClicked(e, ui);
 			}
 		});
 

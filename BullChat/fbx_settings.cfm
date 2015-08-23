@@ -1,5 +1,5 @@
 <cfparam name="traceon" default="true">
 <cfparam name="title" default="BullChat.gr">
-<cfparam name="defaultfuseaction" default="home">
+<cfparam name="defaultfuseaction" default="login">
 
-<cfsetting enablecfoutputonly="true" showdebugoutput="true">
+<cfsetting enablecfoutputonly="false" showdebugoutput="true">

@@ -25,8 +25,8 @@
 	<div class="col_66 no_border_right">
 		<div class="section">
 
-			<ul class="picture_tiles clearfix send_right">
-				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-0.png"></a><div class="alert badge grad_yellow">*</div></li>
+			<ul class="picture_tiles clearfix send_right" id="newMessages">
+<!---
 				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-1.png"></a></li>
 				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-2.png"></a><div class="alert badge grad_green">U</div></li>
 				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-3.png"></a></li>
@@ -35,7 +35,7 @@
 				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-6.png"></a></li>
 				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-7.png"></a><div class="alert badge grad_red">D</div></li>
 				<li><a href="contacts.html" class="pjax"><img width="45" alt="Profile Pic" src="images/content/profiles/mangatar-8.png"></a></li>
-			</ul>
+ --->			</ul>
 
 		</div>
 	</div>
